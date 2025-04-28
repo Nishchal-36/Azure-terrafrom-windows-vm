@@ -1,0 +1,10 @@
+# Ignore Terraform system files
+.terraform/
+.terraform.lock.hcl
+
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Ignore variable values file if you use one
+terraform.tfvars
