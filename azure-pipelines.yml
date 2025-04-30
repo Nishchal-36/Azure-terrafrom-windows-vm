@@ -14,8 +14,8 @@ steps:
   - task: useTerraform@0
   inputs:
     terraformVersion: '1.5.7'
-
-  - script:
+  
+  - script: |
 
     terraform init
     terraform validate
