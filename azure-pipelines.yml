@@ -5,10 +5,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  ARM_CLIENT_ID: $(ARM_CLIENT_ID)
-  ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
-  ARM_TENENT_ID: $(ARM_TENANT_ID)
-  ARM_SUBCRIPTION_ID: $(ARM_SUBCRIPTION_ID)
+- group: terraformsecrets
 
 steps:
 
