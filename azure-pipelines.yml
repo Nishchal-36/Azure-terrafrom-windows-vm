@@ -1,0 +1,31 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+  ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+  ARM_TENENT_ID: $(ARM_TENANT_ID)
+  ARM_SUBCRIPTION_ID: $(ARM_SUBCRIPTION_ID)
+
+steps:
+  - task: useTerraform@0
+  inputs:
+    terraformVersion: '1.5.7'
+
+  - script:
+
+    terraform init
+    terraform validate
+    terraform plan -out=tfplan
+    terraform apply -auto-approve tfplan
+  displayName: 'Terraform Deploy'
+  
+  env:
+  
+    ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+  ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+  ARM_TENENT_ID: $(ARM_TENANT_ID)
+  ARM_SUBCRIPTION_ID: $(ARM_SUBCRIPTION_ID)
